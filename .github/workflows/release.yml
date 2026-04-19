@@ -47,6 +47,8 @@ jobs:
           libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0
 
     - name: Build with PyInstaller
+      env:
+        PYTHONUTF8: "1"
       run: |
         python build.py
 
