@@ -9,7 +9,7 @@
 [![PySide6](https://img.shields.io/badge/PySide6-Qt%206-41CD52?logo=qt)](https://doc.qt.io/qtforpython/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)]()
-[![Stars](https://img.shields.io/github/stars/yourusername/OpenTimeLog?style=social)]()
+[![Stars](https://img.shields.io/github/stars/KeepSmile88/OpenTimeLog?style=social)]()
 
 [English](#english) · [中文](#中文)
 
@@ -41,7 +41,7 @@
 - 📋 **To-Do List** — Integrated task management
 - 📅 **Schedule Manager** — Visualize and manage your day with reminders
 - 📓 **Daily Journal Log** — Add notes to your tracked activities
-- 📤 **Report Export** — Export data to CSV / HTML with deep analysis
+- 📤 **Report Export** — Export data to CSV with deep analysis
 - 🔒 **100% Local Data** — No accounts, no cloud, no telemetry. Your data stays on your machine.
 - 🖥️ **Cross-platform** — Runs on Windows, macOS, and Linux
 
@@ -74,7 +74,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/OpenTimeLog.git
+git clone https://github.com/KeepSmile88/OpenTimeLog.git
 cd OpenTimeLog
 
 # Install dependencies
@@ -241,7 +241,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 - 📋 **待办事项** — 内置任务管理
 - 📅 **日程管理** — 可视化日程安排与提醒
 - 📓 **日志记录** — 为活动添加备注和日记
-- 📤 **报告导出** — 支持导出 CSV / HTML 报告，含深度分析
+- 📤 **报告导出** — 支持导出 CSV 报告，含深度分析
 - 🔒 **数据 100% 本地化** — 无账号、无云端、无遥测
 - 🖥️ **跨平台** — 支持 Windows、macOS、Linux
 
@@ -258,7 +258,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/OpenTimeLog.git
+git clone https://github.com/KeepSmile88/OpenTimeLog.git
 cd OpenTimeLog
 
 # 安装依赖
