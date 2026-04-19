@@ -38,7 +38,7 @@ def build():
     if system == 'Windows':
         print("开始 Windows 打包...")
         args = base_args + [
-            '--windowed',  # 不显示控制台
+            # '--windowed',  # 注释掉不显示控制台，排错需要看输出
             '--icon=resources/main.ico',
             '--add-data=resources;resources',
             '--add-data=config.json;.',

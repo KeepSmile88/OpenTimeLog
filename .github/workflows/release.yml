@@ -63,8 +63,8 @@ jobs:
       if: runner.os == 'macOS'
       run: |
         cd dist
-        # macOS 压缩应用包
-        zip -r ../${{ matrix.artifact_name }} OpenTimeLog.app
+        # macOS 压缩应用包，必须包含 -y (或 --symlinks) 以保留系统框架中的符号链接，避免体积暴增
+        zip -r -y ../${{ matrix.artifact_name }} OpenTimeLog.app
 
     - name: Package Linux
       if: runner.os == 'Linux'
