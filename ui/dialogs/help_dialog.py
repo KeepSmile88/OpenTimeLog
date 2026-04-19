@@ -33,7 +33,16 @@ class HelpDialog(QDialog):
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             'resources', 'main.ico'
         )
-        if os.path.exists(icon_path):
+        png_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+            'resources', 'main.png'
+        )
+        import sys
+        if os.path.exists(icon_path) and sys.platform == 'win32':
+            self.setWindowIcon(QIcon(icon_path))
+        elif os.path.exists(png_path):
+            self.setWindowIcon(QIcon(png_path))
+        elif os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
         
         # 设置窗口标志 - 允许最大化和最小化

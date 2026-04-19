@@ -2,6 +2,12 @@ __pycache__/
 *.pyc
 .idea/
 .pytest_cache/
-data/timelog_bak.db
+data/timelog*.db
 smiley.pfx        
 smiley.crt
+build/
+dist/
+*.spec
+venv/
+env/
+.env

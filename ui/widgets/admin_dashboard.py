@@ -25,6 +25,7 @@ from functools import partial
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from utils.report_parser import ReportParser
+from ui.styles.app_style import get_cjk_font
 
 # 顶级商业 SaaS 配色
 ACCENT_COLORS = ['#00897B', '#E64A19', '#FFA000', '#5E35B1', '#1976D2', '#388E3C']
@@ -156,7 +157,7 @@ class AdminDashboardWidget(QWidget):
         self.pie_chart = QChart()
         self.pie_chart.setAnimationOptions(QChart.SeriesAnimations)
         self.pie_chart.setTitle("全员效能/产出比例看板")
-        self.pie_chart.setTitleFont(QFont("Microsoft YaHei", 12, QFont.Bold))
+        self.pie_chart.setTitleFont(get_cjk_font(12, QFont.Bold))
         self.pie_chart_view = ModernChartView(self.pie_chart)
         self.pie_chart_view.setMinimumHeight(350)
         chart_layout.addWidget(self.pie_chart_view)
@@ -165,7 +166,7 @@ class AdminDashboardWidget(QWidget):
         self.bar_chart = QChart()
         self.bar_chart.setAnimationOptions(QChart.SeriesAnimations)
         self.bar_chart.setTitle("Top 5 核心活动效能透视")
-        self.bar_chart.setTitleFont(QFont("Microsoft YaHei", 12, QFont.Bold))
+        self.bar_chart.setTitleFont(get_cjk_font(12, QFont.Bold))
         self.bar_chart_view = ModernChartView(self.bar_chart)
         self.bar_chart_view.setMinimumHeight(350)
         chart_layout.addWidget(self.bar_chart_view)
@@ -328,7 +329,7 @@ class AdminDashboardWidget(QWidget):
         # 配置图例
         self.pie_chart.legend().setVisible(True)
         self.pie_chart.legend().setAlignment(Qt.AlignmentFlag.AlignRight)
-        self.pie_chart.legend().setFont(QFont("Microsoft YaHei", 9))
+        self.pie_chart.legend().setFont(get_cjk_font(9))
         self.pie_chart.setBackgroundVisible(False)
     
     def _on_pie_slice_hovered(self, state):
@@ -392,7 +393,7 @@ class AdminDashboardWidget(QWidget):
         
         axis_y = QBarCategoryAxis()
         axis_y.append(categories)
-        axis_y.setLabelsFont(QFont("Microsoft YaHei", 10))
+        axis_y.setLabelsFont(get_cjk_font(10))
         
         self.bar_chart.addAxis(axis_x, Qt.AlignBottom)
         self.bar_chart.addAxis(axis_y, Qt.AlignLeft)

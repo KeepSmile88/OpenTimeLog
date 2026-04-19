@@ -88,9 +88,15 @@ class MainWindow(QMainWindow):
         self.tray_icon = QSystemTrayIcon()
         self.tray_icon.setParent(self)
         
-        # 使用应用图标
+        # 使用应用图标 (Windows优先用ico，其他优先用png或尝试回退)
         icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.ico')
-        if os.path.exists(icon_path):
+        png_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.png')
+        
+        if os.path.exists(icon_path) and sys.platform == 'win32':
+            self.tray_icon.setIcon(QIcon(icon_path))
+        elif os.path.exists(png_path):
+            self.tray_icon.setIcon(QIcon(png_path))
+        elif os.path.exists(icon_path):
             self.tray_icon.setIcon(QIcon(icon_path))
         
         # 托盘菜单
@@ -1030,7 +1036,13 @@ class TimeLoggerApp(QApplication):
         
         # 设置应用图标
         icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.ico')
-        if os.path.exists(icon_path):
+        png_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.png')
+        
+        if os.path.exists(icon_path) and sys.platform == 'win32':
+            self.setWindowIcon(QIcon(icon_path))
+        elif os.path.exists(png_path):
+            self.setWindowIcon(QIcon(png_path))
+        elif os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
         
         # 设置应用样式
