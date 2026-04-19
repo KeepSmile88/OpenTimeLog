@@ -17,7 +17,7 @@ from PySide6.QtGui import QColor
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from utils.report_analyzer import ReportAnalyzer
-from ui.styles.app_style import theme_manager
+from ui.styles.app_style import theme_manager, CJK_FONT_FAMILY
 
 
 class ReportWidget(QWidget):
@@ -132,7 +132,7 @@ class ReportWidget(QWidget):
                 color: {t['text_primary']};
                 border: 1px solid {t['border']};
                 border-radius: 4px;
-                font-family: Consolas, "Microsoft YaHei", monospace;
+                font-family: Consolas, {CJK_FONT_FAMILY}, monospace;
                 font-size: 13px;
                 line-height: 1.5;
             }}

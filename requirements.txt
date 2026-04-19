@@ -1,0 +1,2 @@
+# OpenTimeLog 运行时依赖
+PySide6>=6.5.0

@@ -319,6 +319,9 @@ class RunningActivityWidget(QWidget):
 
     def update_data(self, log_data):
         self.update_from_data(log_data)
+        # 更新标题标签（名称/图标可能已变更）
+        if hasattr(self, 'title_lbl'):
+            self.title_lbl.setText(f"{self.icon} {self.name}")
         # 重新应用样式（颜色可能变了）
         self.update_styles()
         self.update_status_display()

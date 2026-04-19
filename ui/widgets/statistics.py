@@ -30,7 +30,7 @@ from PySide6.QtGui import QColor, QFont, QPainter, QPen, QBrush, QPainterPath
 
 # 导入自绘图表组件
 from ui.widgets.chart_widgets import PieChartWidget, BarChartWidget, ComparisonChartWidget
-from ui.styles.app_style import theme_manager
+from ui.styles.app_style import theme_manager, get_cjk_font, CJK_FONT_FAMILY
 
 
 class HeatmapWidget(QWidget):
@@ -113,7 +113,7 @@ class HeatmapWidget(QWidget):
         cell_gap = 3  # 格子间距
         
         # 绘制标题（渐变效果）
-        font_title = QFont("Microsoft YaHei", 14, QFont.Bold)
+        font_title = get_cjk_font(14, QFont.Bold)
         painter.setFont(font_title)
         
         # 标题
@@ -123,7 +123,7 @@ class HeatmapWidget(QWidget):
         painter.drawText(title_rect, Qt.AlignmentFlag.AlignCenter, title)
         
         # 绘制副标题
-        font_subtitle = QFont("Microsoft YaHei", 9)
+        font_subtitle = get_cjk_font(9)
         painter.setFont(font_subtitle)
         painter.setPen(QColor(t['text_secondary']))
         
@@ -138,7 +138,7 @@ class HeatmapWidget(QWidget):
         max_val = max(self.data.values()) if self.data else 1
         
         # 绘制月份标签
-        font_month = QFont("Microsoft YaHei", 8)
+        font_month = get_cjk_font(8)
         painter.setFont(font_month)
         painter.setPen(QColor(t['text_secondary']))
         
@@ -214,7 +214,7 @@ class HeatmapWidget(QWidget):
                     break
         
         # 绘制星期标签
-        font_label = QFont("Microsoft YaHei", 9)
+        font_label = get_cjk_font(9)
         painter.setFont(font_label)
         painter.setPen(QColor(t['text_secondary']))
         
@@ -229,7 +229,7 @@ class HeatmapWidget(QWidget):
         legend_x = margin_left
         legend_y = self.height() - 35
         
-        painter.setFont(QFont("Microsoft YaHei", 9))
+        painter.setFont(get_cjk_font(9))
         painter.setPen(QColor(t['text_secondary']))
         painter.drawText(legend_x, legend_y + 10, "活动强度:")
         
@@ -274,7 +274,7 @@ class StatisticsWidget(QWidget):
         # 顶部控制
         top_ctrl = QHBoxLayout()
         self.date_label = QLabel("基准日期:")
-        self.date_label.setFont(QFont("Microsoft YaHei", 9))
+        self.date_label.setFont(get_cjk_font(9))
         
         self.global_date = QDateEdit(QDate.currentDate())
         self.global_date.setCalendarPopup(True)
@@ -311,7 +311,7 @@ class StatisticsWidget(QWidget):
         # 1. 顶部控制栏
         ctrl_layout = QHBoxLayout()
         self.view_label = QLabel("统计维度:")
-        self.view_label.setFont(QFont("Microsoft YaHei", 9))
+        self.view_label.setFont(get_cjk_font(9))
         self.view_combo = QComboBox()
         self.view_combo.addItems(['日统计', '周统计', '月统计'])
         self.view_combo.setMinimumWidth(100)
@@ -375,7 +375,7 @@ class StatisticsWidget(QWidget):
         
         # 对比分析
         self.comp_title = QLabel("▶ 周期对比分析 (本期 vs 上期)")
-        self.comp_title.setFont(QFont("Microsoft YaHei", 10, QFont.Weight.Bold))
+        self.comp_title.setFont(get_cjk_font(10, QFont.Weight.Bold))
         c_layout.addWidget(self.comp_title)
         
         self.comp_chart_widget = ComparisonChartWidget()
@@ -384,7 +384,7 @@ class StatisticsWidget(QWidget):
         
         # 热力图
         self.heat_title = QLabel("▶ 年度时间贡献热力图")
-        self.heat_title.setFont(QFont("Microsoft YaHei", 10, QFont.Weight.Bold))
+        self.heat_title.setFont(get_cjk_font(10, QFont.Weight.Bold))
         c_layout.addWidget(self.heat_title)
         
         self.heatmap = HeatmapWidget()
@@ -401,7 +401,7 @@ class StatisticsWidget(QWidget):
         self.setStyleSheet(f"""
             QWidget {{
                 background-color: {t['bg_main']};
-                font-family: "Microsoft YaHei", "SimHei";
+                font-family: {CJK_FONT_FAMILY};
                 font-size: 9pt;
                 color: {t['text_primary']};
             }}
@@ -563,7 +563,7 @@ class StatisticsWidget(QWidget):
             progress_item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
             if comp >= 100:
                 progress_item.setForeground(QColor(t['success']))
-                progress_item.setFont(QFont("Microsoft YaHei", 9, QFont.Weight.Bold))
+                progress_item.setFont(get_cjk_font(9, QFont.Weight.Bold))
             elif comp >= 80:
                 progress_item.setForeground(QColor(t['warning']))
             else:

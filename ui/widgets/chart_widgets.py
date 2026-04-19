@@ -10,7 +10,7 @@ from PySide6.QtWidgets import QWidget, QToolTip
 from PySide6.QtCore import Qt, QRectF, QPointF
 from PySide6.QtGui import QPainter, QColor, QBrush, QPen, QFont, QFontMetrics, QLinearGradient, QPainterPath
 
-from ui.styles.app_style import theme_manager
+from ui.styles.app_style import theme_manager, get_cjk_font
 
 class PieChartWidget(QWidget):
     """使用 QPainter 绘制的甜甜圈图组件"""
@@ -70,7 +70,7 @@ class PieChartWidget(QWidget):
         painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
         
         # 绘制标题
-        title_font = QFont("Microsoft YaHei", 12, QFont.Weight.Bold)
+        title_font = get_cjk_font(12, QFont.Weight.Bold)
         painter.setFont(title_font)
         painter.setPen(QColor(t['text_primary']))
         title_rect = QRectF(0, 10, self.width(), 30)
@@ -84,7 +84,7 @@ class PieChartWidget(QWidget):
             rect = QRectF((self.width() - size)/2, (self.height() - size)/2, size, size)
             painter.drawEllipse(rect)
             
-            painter.setFont(QFont("Microsoft YaHei", 10))
+            painter.setFont(get_cjk_font(10))
             painter.setPen(QColor(t['text_secondary']))
             painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, "暂无数据")
             return
@@ -147,7 +147,7 @@ class PieChartWidget(QWidget):
                 painter.drawLine(QPointF(line_start_x, line_start_y), QPointF(label_x, label_y))
                 
                 # 绘制文字
-                label_font = QFont("Microsoft YaHei", 9)
+                label_font = get_cjk_font(9)
                 if is_hovered:
                     label_font.setBold(True)
                 painter.setFont(label_font)
@@ -175,7 +175,7 @@ class PieChartWidget(QWidget):
                 painter.drawText(bg_rect, Qt.AlignmentFlag.AlignCenter, label_text)
                 
         # 绘制中心文字 (总时间或悬停项)
-        painter.setFont(QFont("Microsoft YaHei", 10, QFont.Weight.Bold))
+        painter.setFont(get_cjk_font(10, QFont.Weight.Bold))
         painter.setPen(QColor(t['text_secondary']))
         
         center_text = f"Total\n{int(total/60/60)}h{int(total/60)%60}m"
@@ -301,14 +301,14 @@ class BarChartWidget(QWidget):
         painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
         
         # 绘制标题
-        title_font = QFont("Microsoft YaHei", 12, QFont.Weight.Bold)
+        title_font = get_cjk_font(12, QFont.Weight.Bold)
         painter.setFont(title_font)
         painter.setPen(QColor(t['text_primary']))
         title_rect = QRectF(0, 10, self.width(), 30)
         painter.drawText(title_rect, Qt.AlignmentFlag.AlignCenter, self.title)
         
         if not self.data:
-            painter.setFont(QFont("Microsoft YaHei", 10))
+            painter.setFont(get_cjk_font(10))
             painter.setPen(QColor(t['text_secondary']))
             painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, "暂无数据")
             return
@@ -335,7 +335,7 @@ class BarChartWidget(QWidget):
         
         # 绘制网格线
         painter.setPen(QPen(QColor(t['border']), 1, Qt.PenStyle.DashLine))
-        label_font = QFont("Microsoft YaHei", 8)
+        label_font = get_cjk_font(8)
         painter.setFont(label_font)
         
         grid_count = 5
@@ -356,7 +356,7 @@ class BarChartWidget(QWidget):
             painter.drawText(QRectF(x - 25, margin_top + chart_height + 5, 50, 20), Qt.AlignmentFlag.AlignCenter, text)
  
         self._bar_rects = []
-        name_font = QFont("Microsoft YaHei", 9)
+        name_font = get_cjk_font(9)
         
         for idx, item in enumerate(self.data):
             name, color, value = item
@@ -478,14 +478,14 @@ class ComparisonChartWidget(QWidget):
         painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
         
         # 1. 绘制标题
-        title_font = QFont("Microsoft YaHei", 12, QFont.Weight.Bold)
+        title_font = get_cjk_font(12, QFont.Weight.Bold)
         painter.setFont(title_font)
         painter.setPen(QColor(t['text_primary']))
         title_rect = QRectF(0, 5, self.width(), 30)
         painter.drawText(title_rect, Qt.AlignmentFlag.AlignCenter, self.title)
         
         if not self.current_data and not self.previous_data:
-            painter.setFont(QFont("Microsoft YaHei", 10))
+            painter.setFont(get_cjk_font(10))
             painter.setPen(QColor(t['text_secondary']))
             painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, "暂无对比数据")
             return
@@ -502,7 +502,7 @@ class ComparisonChartWidget(QWidget):
         
         # 3. 绘制图例 (右上角或顶部居中)
         legend_y = 40
-        legend_font = QFont("Microsoft YaHei", 9)
+        legend_font = get_cjk_font(9)
         painter.setFont(legend_font)
         
         color_current = QColor(t['primary'])
@@ -561,7 +561,7 @@ class ComparisonChartWidget(QWidget):
         
         # 5. 绘制网格线与Y轴刻度 (水平线)
         painter.setPen(QPen(QColor(t['border']), 1, Qt.PenStyle.DotLine))
-        painter.setFont(QFont("Microsoft YaHei", 8))
+        painter.setFont(get_cjk_font(8))
         
         grid_count = 5
         for i in range(grid_count + 1):
@@ -584,7 +584,7 @@ class ComparisonChartWidget(QWidget):
         
         # 6. 绘制柱子 (垂直)
         self._bar_rects = []
-        name_font = QFont("Microsoft YaHei", 9)
+        name_font = get_cjk_font(9)
         painter.setFont(name_font)
         
         # 每个组(item)在X轴上的宽度
@@ -656,7 +656,7 @@ class ComparisonChartWidget(QWidget):
             
             # 数值悬停显示 (在柱子上方)
             if is_hovered:
-                painter.setFont(QFont("Microsoft YaHei", 8))
+                painter.setFont(get_cjk_font(8))
                 painter.setPen(QColor(t['text_primary']))
                 
                 # 本期数值

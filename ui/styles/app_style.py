@@ -191,7 +191,57 @@ class ThemeManager(QObject):
 theme_manager = ThemeManager()
 
 
+# ============ 跨平台字体支持 ============
+
+import sys
+from PySide6.QtGui import QFont, QFontDatabase
+
+def _detect_cjk_font() -> str:
+    """检测当前平台可用的 CJK 字体名称"""
+    # 按平台优先级排列的候选字体
+    if sys.platform == 'win32':
+        candidates = ["Microsoft YaHei UI", "Microsoft YaHei", "SimHei"]
+    elif sys.platform == 'darwin':
+        candidates = ["PingFang SC", "Hiragino Sans GB", "STHeiti"]
+    else:
+        candidates = ["Noto Sans CJK SC", "WenQuanYi Micro Hei", "Droid Sans Fallback"]
+    
+    available = QFontDatabase.families()
+    for font in candidates:
+        if font in available:
+            return font
+    
+    # 兜底：返回系统默认 sans-serif
+    return "sans-serif"
+
+# 延迟初始化的全局字体名（首次使用时检测）
+_cjk_font_name = None
+
+def get_cjk_font_name() -> str:
+    """获取当前平台的 CJK 字体名称（缓存结果）"""
+    global _cjk_font_name
+    if _cjk_font_name is None:
+        _cjk_font_name = _detect_cjk_font()
+    return _cjk_font_name
+
+def get_cjk_font(size: int = 9, weight: int = -1) -> QFont:
+    """获取跨平台 CJK QFont 实例
+    
+    Args:
+        size: 字号
+        weight: 字重，-1 为默认
+    """
+    font = QFont(get_cjk_font_name(), size)
+    if weight >= 0:
+        font.setWeight(QFont.Weight(weight))
+    return font
+
+# CSS 样式中使用的跨平台字体声明（回退链）
+CJK_FONT_FAMILY = '"Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif'
+
+
 # ============ 3. 动态样式生成器 (Dynamic Style Generators) ============
+
 
 def get_app_style() -> str:
     """获取主窗口样式 (基于当前主题)"""
@@ -202,7 +252,7 @@ def get_app_style() -> str:
         background-color: {t['bg_main']};
     }}
     QWidget {{
-        font-family: "Microsoft YaHei UI", sans-serif;
+        font-family: {CJK_FONT_FAMILY};
         color: {t['text_primary']};
     }}
     

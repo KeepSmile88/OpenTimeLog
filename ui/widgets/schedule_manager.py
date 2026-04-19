@@ -16,7 +16,7 @@ from PySide6.QtGui import QFont, QIcon, QColor, QTextCharFormat
 from functools import partial
 
 from ui.utils.time_picker import TimePickerDialog
-from ui.styles.app_style import theme_manager
+from ui.styles.app_style import theme_manager, get_cjk_font
 
 
 class ScheduleManagerWidget(QWidget):
@@ -69,7 +69,7 @@ class ScheduleManagerWidget(QWidget):
         left_layout.setContentsMargins(0, 0, 10, 0)
         
         self.add_title = QLabel("📝 添加日程")
-        self.add_title.setFont(QFont("Microsoft YaHei", 12, QFont.Weight.Bold))
+        self.add_title.setFont(get_cjk_font(12, QFont.Weight.Bold))
         left_layout.addWidget(self.add_title)
         
         # 开始时间
@@ -139,7 +139,7 @@ class ScheduleManagerWidget(QWidget):
         
         day_header = QHBoxLayout()
         self.day_title = QLabel("今日日程")
-        self.day_title.setFont(QFont("Microsoft YaHei", 10, QFont.Bold))
+        self.day_title.setFont(get_cjk_font(10, QFont.Bold))
         
         self.clear_btn = QPushButton("清空当日")
         self.clear_btn.clicked.connect(self.clear_current_day)
