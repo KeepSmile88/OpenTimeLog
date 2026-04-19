@@ -1,0 +1,14 @@
+{
+    "theme": "eyecare",
+    "geometry": [
+        551,
+        198,
+        1043,
+        693
+    ],
+    "minimize_to_tray": true,
+    "close_to_tray": false,
+    "pomodoro_duration": 25,
+    "break_duration": 5,
+    "hotkey_show_hide": "Alt+Shift+S"
+}

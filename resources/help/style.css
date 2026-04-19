@@ -1,0 +1,462 @@
+/* aTimeLogPro 帮助文档样式表 */
+
+/* ========== 基础重置与变量 ========== */
+:root {
+    --primary-color: #1A73E8;
+    --primary-dark: #1557b0;
+    --primary-light: #4285f4;
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --text-muted: #8e99a4;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --border-color: #e1e8ed;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei UI", "PingFang SC", "Helvetica Neue", sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========== 头部区域 ========== */
+.header {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    padding: 24px 32px 80px;
+    color: white;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.header .subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ========== 标签导航 ========== */
+.tab-container {
+    position: relative;
+    margin-top: -56px;
+    padding: 0 24px;
+}
+
+.tab-nav {
+    display: flex;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    padding: 6px;
+    gap: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tab-btn:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-btn .icon {
+    font-size: 16px;
+}
+
+/* ========== 内容区域 ========== */
+.content-container {
+    padding: 24px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== 内容卡片 ========== */
+.card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title .icon {
+    font-size: 24px;
+}
+
+/* ========== 引用块 ========== */
+.intro-box {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+    border-left: 4px solid var(--primary-color);
+    padding: 16px 20px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ========== 功能特性卡片网格 ========== */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.feature-card .icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.feature-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ========== 使用指南步骤 ========== */
+.guide-section {
+    margin-bottom: 32px;
+}
+
+.guide-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.step-list {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.step-list li {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 16px;
+    counter-increment: step-counter;
+}
+
+.step-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.step-list li strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.step-list li span {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ========== FAQ 手风琴 ========== */
+.faq-list {
+    list-style: none;
+}
+
+.faq-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--bg-white);
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: var(--bg-light);
+}
+
+.faq-question .arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question .arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--bg-light);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-content {
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ========== 联系支持 ========== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-card .icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.contact-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.contact-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* ========== 更新日志 ========== */
+.changelog {
+    margin-top: 24px;
+}
+
+.changelog-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.changelog-item:last-child {
+    border-bottom: none;
+}
+
+.changelog-version {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    height: fit-content;
+}
+
+.changelog-content h5 {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.changelog-content p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ========== 快捷键表格 ========== */
+.shortcut-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.shortcut-table th,
+.shortcut-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shortcut-table th {
+    background: var(--bg-light);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.shortcut-table td {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.shortcut-table kbd {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: "Consolas", monospace;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+/* ========== 提示框 ========== */
+.tip-box {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-left: 4px solid #4caf50;
+    padding: 12px 16px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #2e7d32;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-left: 4px solid #ff9800;
+    padding: 12px 16px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #e65100;
+}

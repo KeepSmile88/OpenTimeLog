@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenTimeLog - 帮助文档</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <h1>OpenTimeLog v2.0 - 帮助文档</h1>
+        <p class="subtitle">专业的时间记录与管理工具</p>
+    </header>
+
+    <!-- 标签导航 -->
+    <div class="tab-container">
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="overview">
+                <span class="icon">📖</span> 概览
+            </button>
+            <button class="tab-btn" data-tab="features">
+                <span class="icon">✨</span> 功能特性
+            </button>
+            <button class="tab-btn" data-tab="guide">
+                <span class="icon">📋</span> 使用指南
+            </button>
+            <button class="tab-btn" data-tab="faq">
+                <span class="icon">❓</span> 常见问题
+            </button>
+            <button class="tab-btn" data-tab="support">
+                <span class="icon">📧</span> 联系支持
+            </button>
+        </nav>
+    </div>
+
+    <!-- 内容区域 -->
+    <main class="content-container">
+        
+        <!-- 概览标签页 -->
+        <section id="overview" class="tab-content active">
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🎯</span> 产品概览</h2>
+                <div class="intro-box">
+                    OpenTimeLog 是一款专业的时间记录与管理应用，帮助您精确追踪日常活动时间，
+                    提供丰富的统计分析和报告导出功能。无论是工作效率提升、学习时间管理，
+                    还是生活习惯培养，aTimeLogPro 都是您的得力助手。
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">⏱️</div>
+                        <h4>精准计时</h4>
+                        <p>秒级精度的活动计时，支持暂停、继续和停止操作</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📊</div>
+                        <h4>数据统计</h4>
+                        <p>多维度统计分析，可视化图表展示时间分布</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📅</div>
+                        <h4>日程管理</h4>
+                        <p>日/周/月视图日程表，智能提醒即将开始的任务</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">✅</div>
+                        <h4>待办事项</h4>
+                        <p>与活动关联的待办清单，高效管理任务</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📝</div>
+                        <h4>日志记录</h4>
+                        <p>详细的活动日志，支持编辑和手动补录</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📤</div>
+                        <h4>报告导出</h4>
+                        <p>导出 Excel/CSV 格式报告，便于分析和分享</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎨</div>
+                        <h4>多主题</h4>
+                        <p>提供默认、科技蓝、优雅粉等多种主题风格</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🪟</div>
+                        <h4>桌面悬浮窗</h4>
+                        <p>轻量级悬浮窗显示当前活动，随时掌控进度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能特性标签页 -->
+        <section id="features" class="tab-content">
+            <div class="card">
+                <h2 class="card-title"><span class="icon">⏱️</span> 活动管理</h2>
+                <p>创建和管理您的日常活动类型，每个活动支持自定义：</p>
+                <ul style="margin: 16px 0 0 24px; color: var(--text-secondary); line-height: 2;">
+                    <li><strong>活动名称</strong> - 如"编程开发"、"阅读学习"等</li>
+                    <li><strong>活动颜色</strong> - 用于区分和可视化展示</li>
+                    <li><strong>活动图标</strong> - Emoji 表情让活动更直观</li>
+                    <li><strong>每日目标</strong> - 设定每日时间目标，追踪完成度</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📊</span> 统计分析</h2>
+                <p>多维度的时间统计，帮助您了解时间去向：</p>
+                <div class="feature-grid" style="margin-top: 16px;">
+                    <div class="feature-card">
+                        <div class="icon">📈</div>
+                        <h4>趋势图表</h4>
+                        <p>7天/30天活动时间趋势折线图</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🥧</div>
+                        <h4>占比分析</h4>
+                        <p>活动时间占比饼图，一目了然</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h4>目标追踪</h4>
+                        <p>每日目标完成度进度条展示</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📋</div>
+                        <h4>汇总报表</h4>
+                        <p>日/周/月汇总数据表格</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📅</span> 日程管理</h2>
+                <p>规划您的时间安排，让每一天井井有条：</p>
+                <ul style="margin: 16px 0 0 24px; color: var(--text-secondary); line-height: 2;">
+                    <li><strong>日视图</strong> - 查看当天的详细日程安排</li>
+                    <li><strong>周视图</strong> - 一周日程总览，轻松规划</li>
+                    <li><strong>月视图</strong> - 月度日程概览</li>
+                    <li><strong>智能提醒</strong> - 自定义提前提醒时间（5/10/15分钟）</li>
+                    <li><strong>快速开始</strong> - 提醒时一键开始对应活动</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🪟</span> 桌面悬浮窗</h2>
+                <p>轻量级桌面小工具，始终掌握当前活动状态：</p>
+                <div class="tip-box">
+                    💡 提示：通过系统托盘菜单可开启/关闭悬浮窗，或在主窗口最小化时自动显示。
+                </div>
+                <ul style="margin: 16px 0 0 24px; color: var(--text-secondary); line-height: 2;">
+                    <li>实时显示当前运行的活动名称和计时</li>
+                    <li>支持暂停/继续操作</li>
+                    <li>点击可快速切回主窗口</li>
+                    <li>可自由拖动到屏幕任意位置</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 使用指南标签页 -->
+        <section id="guide" class="tab-content">
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🚀</span> 快速开始</h2>
+                
+                <div class="guide-section">
+                    <h3>创建新活动</h3>
+                    <ol class="step-list">
+                        <li>
+                            <strong>打开添加活动对话框</strong>
+                            <span>菜单栏选择 "文件 → 添加活动" 或使用快捷键 Ctrl+N</span>
+                        </li>
+                        <li>
+                            <strong>填写活动信息</strong>
+                            <span>输入活动名称，选择颜色和图标，可设置每日目标时长</span>
+                        </li>
+                        <li>
+                            <strong>保存活动</strong>
+                            <span>点击确定按钮，新活动将出现在左侧活动控制区</span>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>开始计时</h3>
+                    <ol class="step-list">
+                        <li>
+                            <strong>选择活动</strong>
+                            <span>在左侧"活动控制"区找到要开始的活动</span>
+                        </li>
+                        <li>
+                            <strong>点击开始按钮</strong>
+                            <span>点击活动卡片上的 ▶ 按钮开始计时</span>
+                        </li>
+                        <li>
+                            <strong>添加备注（可选）</strong>
+                            <span>在弹出的对话框中输入本次活动的备注</span>
+                        </li>
+                        <li>
+                            <strong>查看运行状态</strong>
+                            <span>运行中的活动会显示在"运行中的活动"区域，实时显示计时</span>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>管理运行中的活动</h3>
+                    <ol class="step-list">
+                        <li>
+                            <strong>暂停活动</strong>
+                            <span>点击 ⏸ 按钮暂停计时，时间不再增长</span>
+                        </li>
+                        <li>
+                            <strong>继续活动</strong>
+                            <span>点击 ▶ 按钮继续计时</span>
+                        </li>
+                        <li>
+                            <strong>停止活动</strong>
+                            <span>点击 ⏹ 按钮结束活动，记录将保存到日志</span>
+                        </li>
+                        <li>
+                            <strong>编辑活动</strong>
+                            <span>点击 ✏ 按钮可修改备注或调整时间</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">⌨️</span> 快捷键</h2>
+                <table class="shortcut-table">
+                    <thead>
+                        <tr>
+                            <th>快捷键</th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+                            <td>添加新活动</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Ctrl</kbd> + <kbd>M</kbd></td>
+                            <td>手动添加记录</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></td>
+                            <td>停止所有活动</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>F5</kbd></td>
+                            <td>刷新界面</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>F1</kbd></td>
+                            <td>打开帮助文档</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Ctrl</kbd> + <kbd>Q</kbd></td>
+                            <td>退出程序</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd></td>
+                            <td>管理员面板</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📤</span> 导出报告</h2>
+                <ol class="step-list">
+                    <li>
+                        <strong>切换到报告导出标签页</strong>
+                        <span>点击主界面的"📋 报告导出"标签</span>
+                    </li>
+                    <li>
+                        <strong>选择日期范围</strong>
+                        <span>设置报告的开始和结束日期</span>
+                    </li>
+                    <li>
+                        <strong>选择导出格式</strong>
+                        <span>支持 Excel (.xlsx) 和 CSV 格式</span>
+                    </li>
+                    <li>
+                        <strong>点击导出按钮</strong>
+                        <span>选择保存位置，报告将自动生成</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 常见问题标签页 -->
+        <section id="faq" class="tab-content">
+            <div class="card">
+                <h2 class="card-title"><span class="icon">❓</span> 常见问题</h2>
+                
+                <ul class="faq-list">
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            如何同时追踪多个活动？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                OpenTimeLog 支持同时运行多个活动。只需在活动控制区点击不同活动的开始按钮，
+                                它们会同时计时并显示在"运行中的活动"区域。适合需要同时处理多项任务的场景，
+                                如一边听课一边做笔记。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            我忘记开始计时了，可以补录吗？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                可以！使用"手动添加记录"功能（快捷键 Ctrl+M）。在弹出的对话框中选择活动类型，
+                                设置开始时间和结束时间，即可补录该时间段的活动记录。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            程序关闭后运行中的活动会丢失吗？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                不会丢失。退出程序时，如果有运行中的活动，会弹出提示询问是否停止这些活动。
+                                您可以选择停止并保存，或取消退出继续计时。此外，程序默认关闭时会最小化到系统托盘，
+                                活动会继续运行。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            如何删除错误的活动记录？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                在"日志记录"标签页中找到需要删除的记录，点击记录右侧的删除按钮（红色垃圾桶图标），
+                                确认后即可删除。您也可以选择编辑记录来修改时间或备注。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            日程提醒没有弹出怎么办？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                请检查以下几点：<br>
+                                1. 确保程序正在运行（可以最小化到托盘，但不能完全退出）<br>
+                                2. 日程的活动名称需要与已创建的活动完全匹配<br>
+                                3. 如果该活动已经在运行中，系统不会重复提醒<br>
+                                4. 检查系统通知设置是否允许应用弹出通知
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            如何更改程序主题？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                在菜单栏选择"主题"，可以选择三种预设主题：<br>
+                                • <strong>默认主题</strong> - 清爽的浅色主题<br>
+                                • <strong>现代科技 (男)</strong> - 深色科技感主题<br>
+                                • <strong>柔和优美 (女)</strong> - 温柔的粉色主题<br>
+                                主题设置会自动保存，下次启动时自动应用。
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                        <button class="faq-question">
+                            数据存储在哪里？如何备份？
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                所有数据存储在程序目录下的 <code>time_logger.db</code> 文件中（SQLite 数据库）。
+                                要备份数据，只需复制此文件到安全的位置。恢复时将备份文件放回原位置即可。
+                                建议定期导出报告作为额外的数据备份。
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 联系支持标签页 -->
+        <section id="support" class="tab-content">
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📧</span> 获取帮助</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="icon">📧</div>
+                        <h4>电子邮件</h4>
+                        <p>如有问题或建议，请发送邮件至：</p>
+                        <p><a href="mailto:support@atimelogpro.com">support@atimelogpro.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon">💬</div>
+                        <h4>反馈建议</h4>
+                        <p>欢迎提交功能建议和改进意见</p>
+                        <p>我们认真对待每一条反馈</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon">🐛</div>
+                        <h4>报告问题</h4>
+                        <p>发现 Bug？请告诉我们</p>
+                        <p>附上复现步骤会更有帮助</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📋</span> 更新日志</h2>
+                
+                <div class="changelog">
+                    <div class="changelog-item">
+                        <span class="changelog-version">v2.0</span>
+                        <div class="changelog-content">
+                            <h5>2026年1月 - 重大更新</h5>
+                            <p>
+                                • 新增日程管理功能（日/周/月视图）<br>
+                                • 新增待办事项功能<br>
+                                • 新增桌面悬浮窗<br>
+                                • 新增多主题支持<br>
+                                • 优化统计分析界面<br>
+                                • 新增帮助文档功能
+                            </p>
+                        </div>
+                    </div>
+                    <div class="changelog-item">
+                        <span class="changelog-version">v1.5</span>
+                        <div class="changelog-content">
+                            <h5>2025年10月</h5>
+                            <p>
+                                • 支持活动暂停/继续<br>
+                                • 新增报告导出功能<br>
+                                • 优化性能和稳定性
+                            </p>
+                        </div>
+                    </div>
+                    <div class="changelog-item">
+                        <span class="changelog-version">v1.0</span>
+                        <div class="changelog-content">
+                            <h5>2025年6月 - 首次发布</h5>
+                            <p>
+                                • 基础活动计时功能<br>
+                                • 活动管理和日志记录<br>
+                                • 基础统计图表
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><span class="icon">💝</span> 致谢</h2>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    感谢您选择 OpenTimeLog！<br><br>
+                    本软件使用 Python + PySide6 开发，致力于为用户提供简洁高效的时间管理体验。<br>
+                    如果您觉得这款软件对您有帮助，欢迎推荐给更多需要的朋友。<br><br>
+                    <strong>祝您时间管理愉快！⏰</strong>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 标签页切换逻辑
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 移除所有 active 状态
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // 激活当前标签
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // FAQ 手风琴逻辑
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // 关闭所有其他展开项
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // 切换当前项
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
