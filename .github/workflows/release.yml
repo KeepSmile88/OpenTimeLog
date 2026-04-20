@@ -60,7 +60,7 @@ jobs:
         Compress-Archive -Path OpenTimeLog -DestinationPath ../${{ matrix.artifact_name }}
         cd ..
         # 编译生成 Windows Setup.exe
-        iscc windows_setup.iss
+        & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" windows_setup.iss
 
     - name: Package macOS
       if: runner.os == 'macOS'
