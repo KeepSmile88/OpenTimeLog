@@ -58,9 +58,13 @@ jobs:
         cd dist
         # PowerShell 压缩绿色便携版
         Compress-Archive -Path OpenTimeLog -DestinationPath ../${{ matrix.artifact_name }}
-        cd ..
-        # 编译生成 Windows Setup.exe
-        & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" windows_setup.iss
+
+    - name: Compile Windows Setup.exe
+      if: runner.os == 'Windows'
+      uses: Minionguyjpro/Inno-Setup-Action@v1.2.4
+      with:
+        path: windows_setup.iss
+        options: /O+
 
     - name: Package macOS
       if: runner.os == 'macOS'
