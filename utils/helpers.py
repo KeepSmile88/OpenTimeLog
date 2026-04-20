@@ -4,7 +4,20 @@
 通用工具函数
 """
 
+import os
+import sys
 from PySide6.QtGui import QColor
+
+
+def get_resource_path(*args) -> str:
+    """获取资源文件的绝对路径
+    支持在开发环境和 PyInstaller (--onedir / --onefile) 环境下解析路径
+    """
+    if hasattr(sys, '_MEIPASS'):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, *args)
 
 
 def darken_color(color: str, factor: float = 0.8) -> str:

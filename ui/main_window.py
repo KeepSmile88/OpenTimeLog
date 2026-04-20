@@ -89,8 +89,9 @@ class MainWindow(QMainWindow):
         self.tray_icon.setParent(self)
         
         # 使用应用图标 (Windows优先用ico，其他优先用png或尝试回退)
-        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.ico')
-        png_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.png')
+        from utils.helpers import get_resource_path
+        icon_path = get_resource_path('resources', 'main.ico')
+        png_path = get_resource_path('resources', 'main.png')
         
         if os.path.exists(icon_path) and sys.platform == 'win32':
             self.tray_icon.setIcon(QIcon(icon_path))
@@ -945,7 +946,7 @@ class MainWindow(QMainWindow):
         dialog.exec()
     
     def show_about(self):
-        QMessageBox.about(self, '关于 aTimeLogPro', '<h3>aTimeLogPro v2.0</h3><p>专业的时间记录工具</p>')
+        QMessageBox.about(self, '关于 OpenTimeLog', '<h3>OpenTimeLog v2.0</h3><p>专业的时间记录工具</p>')
 
     def closeEvent(self, event):
         # 记录窗口几何位置
@@ -962,7 +963,7 @@ class MainWindow(QMainWindow):
             if hasattr(self, 'floating_widget'):
                 self.floating_widget.show()
             try:
-                self.tray_icon.showMessage("aTimeLogPro", "已缩小到系统托盘，悬浮窗已开启", QIcon(), 2000)
+                self.tray_icon.showMessage("OpenTimeLog", "已缩小到系统托盘，悬浮窗已开启", QIcon(), 2000)
             except: pass
             event.ignore()
             return
@@ -1027,7 +1028,7 @@ class TimeLoggerApp(QApplication):
         # Qt6 默认启用高 DPI 缩放，无需手动设置
         super().__init__(sys_argv)
 
-        self.setApplicationName('aTimeLogPro')
+        self.setApplicationName('OpenTimeLog')
         self.setApplicationVersion('2.0')
         # 关键修复：防止主窗口隐藏后程序自动退出
         self.setQuitOnLastWindowClosed(False)
@@ -1035,8 +1036,9 @@ class TimeLoggerApp(QApplication):
         self.setStyle("Fusion")
         
         # 设置应用图标
-        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.ico')
-        png_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resources', 'main.png')
+        from utils.helpers import get_resource_path
+        icon_path = get_resource_path('resources', 'main.ico')
+        png_path = get_resource_path('resources', 'main.png')
         
         if os.path.exists(icon_path) and sys.platform == 'win32':
             self.setWindowIcon(QIcon(icon_path))

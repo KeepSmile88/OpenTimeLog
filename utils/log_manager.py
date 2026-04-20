@@ -37,7 +37,7 @@ class LogManager:
             return
         LogManager._initialized = True
         
-        self.app_name = "aTimeLogPro"
+        self.app_name = "OpenTimeLog"
         self.log_dir = self._get_log_directory()
         self._setup_faulthandler()  # 必须最先初始化
         self._setup_logging()
@@ -76,13 +76,13 @@ class LogManager:
         system = platform.system()
         
         if system == "Windows":
-            # Windows: %APPDATA%\aTimeLogPro\logs
+            # Windows: %APPDATA%\OpenTimeLog\logs
             base = Path(os.environ.get("APPDATA", os.path.expanduser("~")))
         elif system == "Darwin":
-            # macOS: ~/Library/Application Support/aTimeLogPro/logs
+            # macOS: ~/Library/Application Support/OpenTimeLog/logs
             base = Path.home() / "Library" / "Application Support"
         else:
-            # Linux/其他: ~/.local/share/aTimeLogPro/logs
+            # Linux/其他: ~/.local/share/OpenTimeLog/logs
             base = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local" / "share"))
         
         log_dir = base / self.app_name / "logs"

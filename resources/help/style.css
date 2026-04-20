@@ -367,6 +367,108 @@ body {
     text-decoration: underline;
 }
 
+.contact-card.bg-blue {
+    background: linear-gradient(135deg, #4285f4 0%, #1557b0 100%);
+    color: white;
+}
+.contact-card.bg-blue h4, .contact-card.bg-blue p {
+    color: white;
+}
+.contact-card.bg-blue a {
+    background: white;
+    color: #1a73e8;
+    padding: 8px 24px;
+    border-radius: var(--radius-md);
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+.contact-card.bg-blue a:hover {
+    text-decoration: none;
+    background: #f0f7ff;
+}
+
+.contact-card.bg-green {
+    background: linear-gradient(135deg, #34a853 0%, #0d652d 100%);
+    color: white;
+}
+.contact-card.bg-green h4, .contact-card.bg-green p {
+    color: white;
+}
+.contact-card.bg-green a {
+    background: white;
+    color: #0d652d;
+    padding: 8px 24px;
+    border-radius: var(--radius-md);
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+.contact-card.bg-green a:hover {
+    text-decoration: none;
+    background: #e8f5e9;
+}
+
+/* ========== 提交反馈表单 ========== */
+.feedback-form {
+    background: var(--bg-white);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-top: 24px;
+}
+.feedback-form h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.feedback-form > p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+.form-group {
+    margin-bottom: 16px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: var(--transition);
+    outline: none;
+    font-family: inherit;
+}
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+.btn-submit {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+.btn-submit:hover {
+    background: var(--primary-dark);
+}
+
 /* ========== 更新日志 ========== */
 .changelog {
     margin-top: 24px;

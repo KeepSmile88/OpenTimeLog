@@ -298,7 +298,7 @@ class TestMainWindow:
     
     def test_window_title(self, main_window):
         """测试窗口标题"""
-        assert "aTimeLogPro" in main_window.windowTitle()
+        assert "OpenTimeLog" in main_window.windowTitle()
     
     def test_initial_visibility(self, main_window):
         """测试初始可见性"""

@@ -17,7 +17,8 @@ def _debug_log(tag: str, msg: str, include_stack: bool = False):
     """输出调试日志，可选包含堆栈信息"""
     timestamp = datetime.datetime.now().strftime("%H:%M:%S.%f")[:-3]
     print(f"[{timestamp}][{tag}] {msg}")
-    sys.stdout.flush()  # 确保立即输出
+    if sys.stdout is not None:
+        sys.stdout.flush()  # 确保立即输出
 
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QComboBox,

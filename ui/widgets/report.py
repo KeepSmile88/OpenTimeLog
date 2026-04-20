@@ -175,7 +175,7 @@ class ReportWidget(QWidget):
         report_content = ReportAnalyzer.generate_text_report(groups, total_all)
         
         # 添加头部信息
-        header = f"aTimeLogPro 统计报告\n日期范围: {start_date} 至 {end_date}\n{'=' * 40}\n\n"
+        header = f"OpenTimeLog 统计报告\n日期范围: {start_date} 至 {end_date}\n{'=' * 40}\n\n"
         full_report = header + report_content
         
         self.report_text.setText(full_report)

@@ -13,7 +13,27 @@ from PySide6.QtGui import QIcon
 # 尝试导入 WebEngine，如果未安装则提供备用方案
 try:
     from PySide6.QtWebEngineWidgets import QWebEngineView
+    from PySide6.QtWebEngineCore import QWebEnginePage
     WEBENGINE_AVAILABLE = True
+    
+    class CustomWebEnginePage(QWebEnginePage):
+        def acceptNavigationRequest(self, url, _type, isMainFrame):
+            if _type == QWebEnginePage.NavigationTypeLinkClicked:
+                if url.scheme() in ['http', 'https', 'mailto']:
+                    from PySide6.QtGui import QDesktopServices
+                    QDesktopServices.openUrl(url)
+                    return False
+            return super().acceptNavigationRequest(url, _type, isMainFrame)
+            
+        def createWindow(self, _type):
+            page = CustomWebEnginePage(self)
+            def handle_url_changed(url):
+                from PySide6.QtGui import QDesktopServices
+                QDesktopServices.openUrl(url)
+                page.deleteLater()
+            page.urlChanged.connect(handle_url_changed)
+            return page
+
 except ImportError:
     WEBENGINE_AVAILABLE = False
     from PySide6.QtWidgets import QTextBrowser
@@ -29,14 +49,9 @@ class HelpDialog(QDialog):
         self.resize(950, 700)
         
         # 设置窗口图标
-        icon_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            'resources', 'main.ico'
-        )
-        png_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            'resources', 'main.png'
-        )
+        from utils.helpers import get_resource_path
+        icon_path = get_resource_path('resources', 'main.ico')
+        png_path = get_resource_path('resources', 'main.png')
         import sys
         if os.path.exists(icon_path) and sys.platform == 'win32':
             self.setWindowIcon(QIcon(icon_path))
@@ -61,15 +76,15 @@ class HelpDialog(QDialog):
         layout.setContentsMargins(0, 0, 0, 0)
         
         # 帮助文档路径
-        help_dir = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            'resources', 'help'
-        )
+        from utils.helpers import get_resource_path
+        help_dir = get_resource_path('resources', 'help')
         index_path = os.path.join(help_dir, 'index.html')
         
         if WEBENGINE_AVAILABLE:
             # 使用 WebEngineView 显示帮助文档
             self.web_view = QWebEngineView()
+            self.web_page = CustomWebEnginePage(self.web_view)
+            self.web_view.setPage(self.web_page)
             self.web_view.setUrl(QUrl.fromLocalFile(index_path))
             layout.addWidget(self.web_view)
         else:

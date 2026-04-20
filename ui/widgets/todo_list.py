@@ -30,7 +30,8 @@ def _debug_log(tag: str, msg: str, include_stack: bool = False):
         for line in traceback.format_stack()[:-1]:
             for subline in line.strip().split('\n'):
                 print(f"    {subline}")
-    sys.stdout.flush()
+    if sys.stdout is not None:
+        sys.stdout.flush()
 
 
 class TodoItemWidget(QWidget):

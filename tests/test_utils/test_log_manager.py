@@ -109,13 +109,13 @@ class TestLogDirectory:
         system = platform.system()
         if system == "Windows":
             # 应该在 APPDATA 下
-            assert "aTimeLogPro" in str(log_dir)
+            assert "OpenTimeLog" in str(log_dir)
         elif system == "Darwin":
             # 应该在 Library/Application Support 下
-            assert "aTimeLogPro" in str(log_dir)
+            assert "OpenTimeLog" in str(log_dir)
         else:
             # Linux 应该在 .local/share 下
-            assert "aTimeLogPro" in str(log_dir)
+            assert "OpenTimeLog" in str(log_dir)
 
 
 class TestLogLevels:
