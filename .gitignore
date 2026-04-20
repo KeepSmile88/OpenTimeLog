@@ -11,5 +11,5 @@ dist/
 venv/
 env/
 .env
-*.iss
+# *.iss
 *.bat
